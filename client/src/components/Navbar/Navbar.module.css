@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* This creates equal spacing */
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #F2F4F7; /* Background color */
+  border-bottom: 1px solid #e0e0e0;
+  top: 0;           /* Sticks it to the top of the viewport */
+  
+}
+
+.navSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.center {
+  flex-direction: column;
+  gap: 0.5rem;
+  /* We let flexbox control the positioning, not fixed values */
+}
+
+.right {
+  gap: 1.5rem;
+}
+
+.logo {
+  font-family: 'Rubik Dirt', cursive;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #000000;
+}
+
+/* --- SEARCH BAR --- */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 1px solid #383838;
+  border-radius: 9999px; /* This creates the pill shape */
+}
+
+/* This is the actual input field inside the container */
+.searchBar input {
+  border: none;
+  outline: none; /* Removes the blue outline on click */
+  width: 450px; /* WIDTH */
+  background: transparent;
+}
+
+.loginButton {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
