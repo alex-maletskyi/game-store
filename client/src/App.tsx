@@ -30,12 +30,8 @@ function App() {
         because we are not using a CSS module.
       */}
       <main className="mainContent">
-        <h2>Game Showcase</h2>
-        
-        {/* This is the missing part that uses 'games'
-          variable and 'GameCard' component.
-        */}
-        <div className="gameGrid">
+        <h2>Top Deals</h2>
+        <div className="horizontalScrollContainer">
           {games.map((game) => (
             <GameCard key={game.id} game={game} />
           ))}
