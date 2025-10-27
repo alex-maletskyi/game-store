@@ -1,21 +1,13 @@
 import { useState, useEffect } from 'react';
-import './App.css'
-import Navbar from './components/Navbar/Navbar.tsx'
-
-
-// Define a type for our Game object to use with TypeScript
-type Game = {
-  id: string;
-  title: string;
-  platform: string;
-  price: number;
-};
+import Navbar from './components/Navbar/Navbar';
+import GameCard from './components/GameCard/GameCard';
+import type { Game } from './types/game';
+import './App.css'; 
 
 function App() {
   // Create a state variable to store our array of games
   const [games, setGames] = useState<Game[]>([]);
-  
-  //utilize usEffect to fetch data
+
   useEffect(() => {
     //Async function to fetch the data
     const fetchGames = async () => {
@@ -24,23 +16,31 @@ function App() {
         const data = await response.json();
         setGames(data); //Updates state with fetched data (games)
       } catch (error) {
-        console.error("Failed to fetch games: ", error);
+        console.error("Failed to fetch games:", error);
       }
-    }
+    };
     fetchGames(); //Using (calling) the function
-  }, []); 
+  }, []);
 
   return (
     <div>
       <Navbar />
       
-      <h1>GameStore</h1>
-      <h2>Games List</h2>
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>{game.title}</li>
-        ))}
-      </ul>
+      {/* Using string classNames "mainContent" and "gameGrid" 
+        because we are not using a CSS module.
+      */}
+      <main className="mainContent">
+        <h2>Game Showcase</h2>
+        
+        {/* This is the missing part that uses 'games'
+          variable and 'GameCard' component.
+        */}
+        <div className="gameGrid">
+          {games.map((game) => (
+            <GameCard key={game.id} game={game} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 }

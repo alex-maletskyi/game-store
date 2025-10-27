@@ -1,0 +1,5 @@
+# VS Code Workspace configuration
+*.code-workspace
+
+# Compiled TypeScript output
+/server/dist

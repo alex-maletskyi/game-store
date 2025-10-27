@@ -1,15 +1,17 @@
 //standard setup for a Node.js project
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "CommonJS",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
+    "target": "ES6",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
     "strict": true,
-    "skipLibCheck": true
+
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types"]
   },
-  "include": ["src/**/*"]
+  "include": ["src", "prisma"],
+  "exclude": ["node_modules", "dist"]
 }
