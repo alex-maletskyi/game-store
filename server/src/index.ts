@@ -1,6 +1,6 @@
 import express from 'express';
 //import { PrismaClient } from './generated/prisma'; // Import Prisma Client
-import cors from 'cors'; // Import CORS (cross-origin requests; ie requests from different ports can be problematic)
+import cors from 'cors'; // Import CORS (cross-origin requests; i.e. requests from different ports can be problematic)
 //this allows the app to do it with no issues
 const { PrismaClient } = require('@prisma/client');
 

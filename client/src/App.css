@@ -1,0 +1,10 @@
+.mainContent {
+  padding: 2rem;
+}
+
+.gameGrid {
+  display: grid;
+  /* creates the columns */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
