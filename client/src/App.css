@@ -1,10 +1,18 @@
 .mainContent {
   padding: 2rem;
+  overflow-x: hidden; /* Prevents main page from scrolling horizontally */
 }
 
-.gameGrid {
-  display: grid;
-  /* creates the columns */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+.horizontalScrollContainer {
+  display: flex;         /* Lines up cards in a row */
+  overflow-x: auto;      /* Adds the horizontal scrollbar */
+  gap: 1.5rem;           /* Space between cards */
+  padding-bottom: 1.5rem; /* Space for the scrollbar */
+}
+
+/* This gives the cards a fixed width so they don't get squished. */
+/* Selects only the div elements that are direct children of .horizontalScrollContainer */
+.horizontalScrollContainer > div {
+  flex-shrink: 0;
+  width: 250px;
 }
