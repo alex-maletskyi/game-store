@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import CategoryBanner from './components/CategoryBanner/CategoryBanner';
+import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import NewsBanner from './components/NewsBanner/NewsBanner';
 import GameCard from './components/GameCard/GameCard';
@@ -54,6 +55,8 @@ function App() {
             imageUrl="https://via.placeholder.com/150"
           />
         </div>
+        {/* footer for every page */}
+        <Footer />
     </div>
   );
 }
