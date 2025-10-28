@@ -1,18 +1,25 @@
 .mainContent {
   padding: 2rem;
-  overflow-x: hidden; /* Prevents main page from scrolling horizontally */
+  overflow-x: hidden; /* prevents main page from scrolling horizontally */
 }
 
 .horizontalScrollContainer {
-  display: flex;         /* Lines up cards in a row */
-  overflow-x: auto;      /* Adds the horizontal scrollbar */
-  gap: 1.5rem;           /* Space between cards */
-  padding-bottom: 1.5rem; /* Space for the scrollbar */
+  display: flex;         /* lines up cards in a row */
+  overflow-x: auto;      /* adds the horizontal scrollbar */
+  gap: 1.5rem;           /* space between cards */
+  padding-bottom: 1.5rem; /* space for the scrollbar */
 }
 
-/* This gives the cards a fixed width so they don't get squished. */
-/* Selects only the div elements that are direct children of .horizontalScrollContainer */
+/* gives the cards a fixed width so they don't get squished. */
+/* selects only the div elements that are direct children of .horizontalScrollContainer */
 .horizontalScrollContainer > div {
   flex-shrink: 0;
   width: 250px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* creates two equal columns */
+  gap: 1.5rem;
+  margin-top: 2rem; /* adds space above this section */
 }

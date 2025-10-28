@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CategoryBanner from './components/CategoryBanner/CategoryBanner';
 import Navbar from './components/Navbar/Navbar';
 import NewsBanner from './components/NewsBanner/NewsBanner';
 import GameCard from './components/GameCard/GameCard';
@@ -38,6 +39,21 @@ function App() {
           ))}
         </div>
       </main>
+      {/* 2 sections for "Games Under 20" and "New Games" */}
+      <div className="categoryGrid">
+          <CategoryBanner
+            title="Games Under €20"
+            subtitle="Explore and find games under €20!"
+            linkTo="/games/under-20"
+            imageUrl="https://via.placeholder.com/150"
+          />
+          <CategoryBanner
+            title="New In Store"
+            subtitle="Take a look at the new games!"
+            linkTo="/games/new"
+            imageUrl="https://via.placeholder.com/150"
+          />
+        </div>
     </div>
   );
 }
