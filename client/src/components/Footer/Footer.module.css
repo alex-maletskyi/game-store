@@ -1,0 +1,42 @@
+/* main footer container */
+.footer {
+  width: 100%;
+  padding: 0.5rem 2rem;
+  background-color: #f2f4f7; /* light gray background from your design */
+  border-top: 1px solid #e0e0e0;
+  /* flexbox to center everything vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* space between the text, icons, and copyright */
+  margin-top: 5rem;
+}
+
+.connectText {
+  font-family: 'Rubik Dirt', cursive; /* using your logo font */
+  font-size: 1.25rem;
+  color: #000;
+  margin: 0;
+}
+
+.socialIcons {
+  display: flex; /* line up icons in a row */
+  gap: 1.25rem;
+}
+
+/* style for each icon link */
+.socialIcons a {
+  font-size: 2rem; /* makes the icons larger */
+  color: #000;
+  transition: color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  color: #007bff; /* blue hover effect */
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #555;
+  margin: 0;
+}
