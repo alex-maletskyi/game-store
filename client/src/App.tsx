@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import NewsBanner from './components/NewsBanner/NewsBanner';
 import GameCard from './components/GameCard/GameCard';
 import type { Game } from './types/game';
 import './App.css'; 
@@ -25,8 +26,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      
-      {/* Using string classNames "mainContent" and "gameGrid" 
+      <NewsBanner />
+      {/* using string classNames "mainContent" and "gameGrid" 
         because we are not using a CSS module.
       */}
       <main className="mainContent">
