@@ -6,5 +6,6 @@ export type Game = {
   platform: string;
   price: number;
   imageUrl: string;
+  description: string;
   // Add any other properties like salePercentage, isNew, etc.
 };

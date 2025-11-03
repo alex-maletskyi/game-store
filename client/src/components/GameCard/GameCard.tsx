@@ -1,22 +1,22 @@
 import styles from './GameCard.module.css';
 import type { Game } from '../../types/game';
+import { Link } from 'react-router-dom';
 
-//Any object that wants to be considered GameCardProps must have a property called game, 
-// and the value of that property must be of type Game
+/* any object that wants to be considered GameCardProps must have a property called game, 
+and the value of that property must be of type Game */
 type GameCardProps = {
-  game: Game; // Use the imported Game type here
+  game: Game; // use the imported Game type here
 };
 
-// SIMPLE COMPONENT DEFINITION:
-// The component receives one argument called "props".
-// This "props" object must be of type "GameCardProps".
+/* SIMPLE COMPONENT DEFINITION:
+ the component receives one argument called "props".
+ this "props" object must be of type "GameCardProps". */
 const GameCard = (props: GameCardProps) => {
-
-  // To get our game data, we access it inside the function:
+  // to get our game data, we access it inside the function:
   const game = props.game;
 
   return (
-    <div className={styles.card}>
+    <Link to={`/game/${game.id}`} className={styles.card}>
       <div className={styles.cardHeader}>
         <span className={styles.platform}>{game.platform}</span>
         <span className={styles.saleTag}>-40%</span>
@@ -34,7 +34,7 @@ const GameCard = (props: GameCardProps) => {
         <button className={styles.iconButton}>🛒</button>
         <button className={styles.iconButton}>🛍️</button>
       </div>
-    </div>
+    </Link>
   )
 }
 

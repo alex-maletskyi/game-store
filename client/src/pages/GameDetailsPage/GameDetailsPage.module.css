@@ -1,0 +1,66 @@
+/* this class is on the <main> tag */
+.detailsLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* creates two equal columns */
+  gap: 2rem;
+  align-items: start; /* aligns items to the top of their grid cell */
+}
+
+.leftColumn {
+  /* this column just holds the image */
+}
+
+.mainImage {
+  width: 100%;
+  border-radius: 15px;
+  background-color: #333; /* a dark placeholder while image loads */
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column; /* stacks the text and buttons vertically */
+  gap: 1rem; /* space between title, price, and buttons */
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ccc; /* lighter text color */
+  margin: 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buyButton {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.buyButton:hover {
+  opacity: 0.8;
+}
+
+.addToCart {
+  background-color: #555;
+  color: white;
+}
+
+.buyNow {
+  background-color: #007bff; /* same blue as login button */
+  color: white;
+}
+
+.description {
+  margin-top: 1.5rem;
+  border-top: 1px solid #444; /* a light separator line */
+  padding-top: 1.5rem;
+}

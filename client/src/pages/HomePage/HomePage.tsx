@@ -1,9 +1,9 @@
-import NewsBanner from '../components/NewsBanner/NewsBanner';
-import GameCard from '../components/GameCard/GameCard';
-import CategoryBanner from '../components/CategoryBanner/CategoryBanner';
-import type { Game } from '../types/game';
+import NewsBanner from '../../components/NewsBanner/NewsBanner';
+import GameCard from '../../components/GameCard/GameCard';
+import CategoryBanner from '../../components/CategoryBanner/CategoryBanner';
+import type { Game } from '../../types/game';
 import { useState, useEffect } from 'react';
-import '../App.css'; 
+import '../../App.css';
 
 const HomePage = () => {
   // fetching data for games
