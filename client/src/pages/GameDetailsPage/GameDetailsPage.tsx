@@ -14,11 +14,11 @@ const GameDetailsPage = () => {
     const fetchGame = async () => {
       try {
         /* fetch data from the new backend endpoint using the id */
-        const response = await fetch(`http://localhost:5001/api/games/${id}`);
-        const data = await response.json();
-        setGame(data);
+          const response = await fetch(`http://localhost:5001/api/games/${id}`);
+          const data = await response.json();
+          setGame(data);
       } catch (error) {
-        console.error("failed to fetch game:", error);
+          console.error("failed to fetch game:", error);
       }
     };
 
