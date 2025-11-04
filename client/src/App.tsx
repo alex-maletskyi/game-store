@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import HomePage from './pages/HomePage/HomePage';
 import GameDetailsPage from './pages/GameDetailsPage/GameDetailsPage';
+import GameBrowsePage from './pages/GameBrowsePage/GameBrowsePage';
 import './App.css'; 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         */}
         <Route path="/" element={<HomePage />} />
         <Route path="/game/:id" element={<GameDetailsPage />} />
+        <Route path="/games" element={<GameBrowsePage />} />
         {/* add other pages here:
           <route path="/cart" element={<cartpage />} />
         */}
