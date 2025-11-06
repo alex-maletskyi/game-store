@@ -1,8 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 //import { PrismaClient } from './generated/prisma'; // Import Prisma Client
 import cors from 'cors'; // Import CORS (cross-origin requests; i.e. requests from different ports can be problematic)
 //this allows the app to do it with no issues
 const { PrismaClient } = require('@prisma/client');
+import userRoutes from './routes/user';
 
 // Initialize Prisma Client
 const prisma = new PrismaClient({
@@ -12,6 +16,8 @@ const app = express();
 const PORT = 5001;
 
 app.use(cors());
+/* allows the server to read the JSON data that the frontend will send in its "register" request */
+app.use(express.json()); // read json from requests
 
 /* --- API ROUTES --- */
 app.get('/api/games', async (req, res) => {
@@ -40,6 +46,9 @@ app.get('/api/games/:id', async (req, res) => {
         res.status(500).json({ error: "Failed to fetch game" });
     }
 });
+
+/* tells express to use your user routes for any url starting with /api/users */
+app.use('/api/users', userRoutes);
 
 /* --- SERVER START --- */
 app.listen(PORT, () => {
