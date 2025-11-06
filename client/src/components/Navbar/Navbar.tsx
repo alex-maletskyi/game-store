@@ -1,16 +1,25 @@
 import styles from './Navbar.module.css';
 import { Link } from 'react-router-dom';
-//Links allow to store state in memory after loading (which prevents full page reload)
+// *links allow to store state in memory after loading (which prevents full page reload)
+import { useAuth } from '../../context/useAuth';
 
-const Navbar = () => {
+type NavbarProps = {
+  onLoginClick: () => void; // (a function that takes no arguments)
+};
+
+const Navbar = (props: NavbarProps) => {
+  /* get the function from the props object */
+  const { onLoginClick } = props;
+  const { token, logout } = useAuth();
+
   return (
     <nav className={styles.navbar}>
-      {/* --- Logo ---*/}
+      {/* --- logo ---*/}
       <div className={styles.navSection}>
         <a href="/" className={styles.logo}>GameStore</a>
       </div>
 
-      {/* --- Search and Filters ---*/}
+      {/* --- search and filters ---*/}
       <div className={`${styles.navSection} ${styles.center}`}>
         <div className={styles.searchBar}>
           <input type="text" placeholder="Search..." />
@@ -27,7 +36,17 @@ const Navbar = () => {
       <div className={`${styles.navSection} ${styles.right}`}>
         <Link to="/">Home</Link>
         <Link to="/cart">Cart</Link>
-        <button className={styles.loginButton}>Log In →</button>
+        {token ? (
+          // if token exists, show "log out"
+          <button className={styles.loginButton} onClick={logout}>
+            Log Out
+          </button>
+        ) : (
+          // if token is null, show "log in"
+          <button className={styles.loginButton} onClick={onLoginClick}>
+            Log In →
+          </button>
+        )}
       </div>
     </nav>
   );
