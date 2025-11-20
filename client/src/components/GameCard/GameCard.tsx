@@ -19,7 +19,15 @@ const GameCard = (props: GameCardProps) => {
     <Link to={`/game/${game.id}`} className={styles.card}>
       <div className={styles.cardHeader}>
         <span className={styles.platform}>{game.platform}</span>
-        <span className={styles.saleTag}>-40%</span>
+        {/* LOGIC: Show Sale tag IF salePercentage exists */}
+        {game.salePercentage && (
+           <span className={styles.saleTag}>-{game.salePercentage}%</span>
+        )}
+
+        {/* LOGIC: Show NEW tag IF isNewRelease is true (and not on sale) */}
+        {game.isNewRelease && !game.salePercentage && (
+           <span className={styles.newTag}>NEW</span>
+        )}
       </div>
       
       <img src={game.imageUrl} alt={game.title} className={styles.gameImage} />

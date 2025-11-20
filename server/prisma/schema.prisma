@@ -27,6 +27,12 @@ model Game {
   description String   @db.Text
   createdAt   DateTime @default(now())       
   updatedAt   DateTime @updatedAt
+  releaseDate String? // (the release date from the api)
+  screenshots String[] // (a list of image urls)
+  genres      String[] // (a list of genre names)
+  // (mocked "store" data)
+  salePercentage Int?     // (e.g., 20 for 20% off)
+  isNewRelease   Boolean  @default(false)
 }
 
 model User {

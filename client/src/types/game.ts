@@ -7,5 +7,9 @@ export type Game = {
   price: number;
   imageUrl: string;
   description: string;
-  // Add any other properties like salePercentage, isNew, etc.
+  releaseDate?: string; // ? means it may be null
+  genres?: string[];
+  screenshots?: string[];
+  salePercentage?: number;
+  isNewRelease?: boolean;
 };

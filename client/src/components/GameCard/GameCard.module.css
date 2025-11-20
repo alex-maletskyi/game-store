@@ -1,6 +1,6 @@
 .card {
   background-color: #ffffff;
-  border-radius: 20px; /* This creates the rounded corners */
+  border-radius: 20px; /* creates the rounded corners */
   border: 1px solid #e0e0e0;
   padding: 1rem;
   font-family: system-ui, sans-serif;
@@ -8,7 +8,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Space between the image, info, and actions */
+  gap: 0.75rem; /* space between the image, info, and actions */
 }
 
 .cardHeader {
@@ -20,24 +20,33 @@
 .platform {
   font-size: 0.9rem;
   font-weight: 500;
-  /* Add the platform icon later */
+  /* add the platform icon later */
 }
 
 .saleTag {
-  background-color: #ff4d4d; /* Red color */
+  background-color: #ff4d4d; /* red color */
   color: white;
   padding: 0.25rem 0.75rem;
-  border-radius: 99px; /* Pill shape */
+  border-radius: 99px; /* pill shape */
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.newTag {
+  background-color: #28a745; /* green color */
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
   font-size: 0.8rem;
   font-weight: bold;
 }
 
 .gameImage {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Makes the image a perfect square */
+  aspect-ratio: 1 / 1; /* makes the image a perfect square */
   object-fit: cover;
   border-radius: 10px;
-  background-color: #f0f0f0; /* Placeholder color */
+  background-color: #f0f0f0; /* placeholder color */
 }
 
 .gameInfo {
@@ -67,7 +76,7 @@
 .iconButton {
   background: none;
   border: none;
-  font-size: 1.5rem; /* Makes the emojis larger */
+  font-size: 1.5rem; /* makes the emojis larger */
   color: #333;
   cursor: pointer;
   padding: 0;
