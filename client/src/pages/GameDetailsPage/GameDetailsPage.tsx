@@ -14,11 +14,11 @@ const GameDetailsPage = () => {
     const fetchGame = async () => {
       try {
         /* fetch data from the new backend endpoint using the id */
-          const response = await fetch(`http://localhost:5001/api/games/${id}`);
-          const data = await response.json();
-          setGame(data);
+        const response = await fetch(`http://localhost:5001/api/games/${id}`);
+        const data = await response.json();
+        setGame(data);
       } catch (error) {
-          console.error("failed to fetch game:", error);
+        console.error("failed to fetch game:", error);
       }
     };
 
@@ -32,28 +32,67 @@ const GameDetailsPage = () => {
 
   /* once loaded, display the game details */
   return (
-    <main className={`mainContent ${styles.detailsLayout}`}>
+    <main className={`mainContent ${styles.container}`}>
       
-      {/* left column: image */}
-      <div className={styles.leftColumn}>
+      {/* TOP SECTION: Main Info (Image + Details) */}
+      <div className={styles.topSection}>
         <img src={game.imageUrl} alt={game.title} className={styles.mainImage} />
-      </div>
-
-      {/* right column: info & buy buttons */}
-      <div className={styles.rightColumn}>
-        <h1>{game.title}</h1>
-        <p className={styles.price}>${game.price.toFixed(2)}</p>
-
-        <div className={styles.buttonGroup}>
-          <button className={`${styles.buyButton} ${styles.addToCart}`}>Add to Cart</button>
-          <button className={`${styles.buyButton} ${styles.buyNow}`}>Buy Now</button>
-        </div>
         
-        <div className={styles.description}>
-          <h3>Product Description</h3>
-          <p>{game.description}</p>
+        <div className={styles.infoColumn}>
+          <div className={styles.header}>
+            <span className={styles.platformBadge}>{game.platform}</span>
+            {game.releaseDate && <span className={styles.date}>{game.releaseDate}</span>}
+          </div>
+          
+          <h1 className={styles.title}>{game.title}</h1>
+
+          {/* Display Genres */}
+          <div className={styles.genres}>
+            {game.genres?.map((genre) => (
+              <span key={genre} className={styles.genreTag}>{genre}</span>
+            ))}
+          </div>
+
+          {/* Price Block with Sale Logic */}
+          <div className={styles.priceBlock}>
+            {game.salePercentage ? (
+              <>
+                <span className={styles.oldPrice}>${game.price.toFixed(2)}</span>
+                <span className={styles.finalPrice}>
+                  ${(game.price * (1 - game.salePercentage / 100)).toFixed(2)}
+                </span>
+                <span className={styles.saleBadge}>-{game.salePercentage}%</span>
+              </>
+            ) : (
+              <span className={styles.finalPrice}>${game.price.toFixed(2)}</span>
+            )}
+          </div>
+
+          <div className={styles.buttonGroup}>
+            <button className={`${styles.btn} ${styles.cartBtn}`}>Add to Cart</button>
+            <button className={`${styles.btn} ${styles.buyBtn}`}>Buy Now</button>
+            <button className={`${styles.btn} ${styles.wishlistBtn}`}>❤️</button>
+          </div>
         </div>
       </div>
+
+      {/* MIDDLE SECTION: Description */}
+      <div className={styles.descriptionSection}>
+        <h3>About this game</h3>
+        <p>{game.description}</p>
+      </div>
+
+      {/* BOTTOM SECTION: Screenshots Gallery */}
+      {game.screenshots && game.screenshots.length > 0 && (
+        <div className={styles.mediaSection}>
+          <h3>Gallery</h3>
+          <div className={styles.screenshotGrid}>
+            {game.screenshots.map((shot, index) => (
+              <img key={index} src={shot} alt={`Screenshot ${index + 1}`} className={styles.screenshot} />
+            ))}
+          </div>
+        </div>
+      )}
     </main>
   );
 };
