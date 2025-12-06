@@ -1,37 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Game } from '../types/Game'; 
-import GameCard from '../components/GameCard'; 
+import { useState, useEffect } from 'react';
+import type { Game } from '../../types/game';
+import GameCard from '../../components/GameCard/GameCard';
+import '../../App.css'; 
 
-const GameBrowsePage: React.FC = () => {
+const GameBrowsePage = () => {
   const [games, setGames] = useState<Game[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState(true); // track loading status
+  const [error, setError] = useState<string | null>(null); // track errors
 
   useEffect(() => {
     const fetchGames = async () => {
       try {
-          const response = await axios.get<Game[]>('http://localhost:3000/api/games');
-          setGames(response.data);
-      } catch (error) {
-          console.error("Failed to fetch games:", error);
+        //ensure this port matches the server (5001)
+        const response = await fetch('http://localhost:5001/api/games');
+        
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        setGames(data);
+      } catch (err) {
+          console.error("Failed to fetch games:", err);
+          setError("Failed to load games. Make sure the server is running on port 5001.");
       } finally {
-          setLoading(false);
+          setIsLoading(false); //stop loading whether it worked or failed
       }
     };
+
     fetchGames();
   }, []);
 
-  if (loading) return <div className="text-center text-white py-10">Loading...</div>;
+  if (isLoading) {
+    return <div className="mainContent"><h2>Loading games...</h2></div>;
+  }
+
+  if (error) {
+    return <div className="mainContent"><h2>Error: {error}</h2></div>;
+  }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-white mb-6">All Games</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {games.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+    <main className="mainContent">
+      <h2>All Games</h2>
+      <div className="gameGrid">
+        {games.length > 0 ? (
+            games.map((game) => (
+              <GameCard key={game.id} game={game} />
+            ))
+        ) : (
+            <p>No games found in the database.</p>
+        )}
       </div>
-    </div>
+    </main>
   );
 };
 
