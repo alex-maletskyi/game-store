@@ -30,3 +30,28 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
 }
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between; /* Pushes items to edges */
+  align-items: center; /* Vertically centers them */
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.viewAllButton {
+  background-color: #007bff; /* Primary Blue */
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 99px; /* Pill shape */
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2); /* Soft blue shadow glow */
+}
+
+.viewAllButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
