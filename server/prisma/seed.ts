@@ -21,7 +21,7 @@ function getStoreStatus() {
     return { isNewRelease: false, salePercentage: Math.floor(Math.random() * 50) + 10 }; // (10-60% off)
   }
   
-  // (otherwise, it's a normal game)
+  // (otherwise it's a normal game)
   return { isNewRelease: false, salePercentage: null };
 }
 
