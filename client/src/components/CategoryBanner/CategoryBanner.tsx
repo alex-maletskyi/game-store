@@ -16,9 +16,12 @@ const CategoryBanner = (props: CategoryBannerProps) => {
     return (
         /* transfers the user to games of respective category */
         <Link to={linkTo} className={styles.banner}>
-            <h2 className={styles.title}>{title}</h2>
-            <p className={styles.subtitle}>{subtitle}</p>
             <img src={imageUrl} alt={title} className={styles.bannerImage} />
+            <div className={styles.textOverlay}>
+                <h2 className={styles.title}>{title}</h2>
+                <p className={styles.subtitle}>{subtitle}</p>
+            </div>
+            
         </Link>
     )
 }
