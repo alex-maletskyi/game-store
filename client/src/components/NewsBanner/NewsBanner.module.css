@@ -17,6 +17,8 @@
   text-decoration: none;
   color: white;
   display: block; /* makes the Link a block element */
+  height: 100%; 
+  width: 100%;
 }
 
 /* this makes the first item span both rows */
@@ -41,4 +43,12 @@
   bottom: 1rem;
   left: 1rem;
   z-index: 2;
+}
+
+.newsImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes the image fill the container perfectly */
+  object-position: center; /* Keeps the center of the image visible */
+  transition: transform 0.5s ease;
 }

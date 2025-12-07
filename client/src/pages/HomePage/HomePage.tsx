@@ -1,10 +1,13 @@
-import NewsBanner from '../../components/NewsBanner/NewsBanner';
+import NewsBanner from '../../components/NewsBanner/NewsBanner.tsx'
 import GameCard from '../../components/GameCard/GameCard';
 import CategoryBanner from '../../components/CategoryBanner/CategoryBanner';
 import { Link } from 'react-router-dom';
 import type { Game } from '../../types/game';
 import { useState, useEffect } from 'react';
 import '../../App.css';
+//images for 2 (games under 20/new games) banners at the bottom
+import cheapGameImg from '../../assets/games-under20.jpg'; 
+import newGameImg from '../../assets/new-games.jpg';
 
 const HomePage = () => {
   // fetching data for games
@@ -26,7 +29,8 @@ const HomePage = () => {
   return (
     <div>
       {/* news section */}  
-      <NewsBanner />
+      <NewsBanner games={games}/>
+      {/* top deals section */}
       <main className="mainContent">
         {/* top deals section */}
         <div className="sectionHeader">
@@ -46,13 +50,13 @@ const HomePage = () => {
             title="Games Under €20"
             subtitle="Explore and find games under €20!"
             linkTo="/games/under-20"
-            imageUrl="https://via.placeholder.com/150"
+            imageUrl={cheapGameImg}
           />
           <CategoryBanner
             title="New In Store"
             subtitle="Take a look at the new games!"
             linkTo="/games/new"
-            imageUrl="https://via.placeholder.com/150"
+            imageUrl={newGameImg}
           />
         </div>
       </main>
