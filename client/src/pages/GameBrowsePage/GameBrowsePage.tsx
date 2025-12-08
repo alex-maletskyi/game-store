@@ -11,8 +11,7 @@ const GameBrowsePage = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        //ensure this port matches the server (5001)
-        const response = await fetch('http://localhost:5001/api/games');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/games`);
         
         if (!response.ok) {
             throw new Error('Network response was not ok');
