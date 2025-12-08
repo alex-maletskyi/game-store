@@ -14,7 +14,7 @@ const GameDetailsPage = () => {
     const fetchGame = async () => {
       try {
         /* fetch data from the new backend endpoint using the id */
-        const response = await fetch(`http://localhost:5001/api/games/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/games/${id}`);
         const data = await response.json();
         setGame(data);
       } catch (error) {
