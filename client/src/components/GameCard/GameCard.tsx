@@ -14,12 +14,16 @@ type GameCardProps = {
 const GameCard = (props: GameCardProps) => {
   // to get our game data, we access it inside the function:
   const game = props.game;
+  //calculates discounted price
+  const discountedPrice = game.salePercentage 
+    ? (game.price * (1 - game.salePercentage / 100)).toFixed(2)
+    : null;
 
   return (
     <Link to={`/game/${game.id}`} className={styles.card}>
       <div className={styles.cardHeader}>
         <span className={styles.platform}>{game.platform}</span>
-        {/* LOGIC: Show Sale tag IF salePercentage exists */}
+        {/* LOGIC: show sale tag IF salePercentage exists */}
         {game.salePercentage && (
            <span className={styles.saleTag}>-{game.salePercentage}%</span>
         )}
@@ -34,7 +38,17 @@ const GameCard = (props: GameCardProps) => {
       
       <div className={styles.gameInfo}>
         <span className={styles.title}>{game.title}</span>
-        <span className={styles.price}>${game.price.toFixed(2)}</span>
+        {/* PRICE LOGIC */}
+        <div className={styles.priceContainer}>
+          {game.salePercentage ? (
+            <>
+              <span className={styles.originalPrice}>${game.price.toFixed(2)}</span>
+              <span className={styles.discountedPrice}>${discountedPrice}</span>
+            </>
+          ) : (
+            <span className={styles.price}>${game.price.toFixed(2)}</span>
+          )}
+        </div>
       </div>
 
       <div className={styles.actions}>
