@@ -26,6 +26,9 @@ const HomePage = () => {
     fetchGames();
   }, []);
 
+  //FILTER LOGIC: only keep games that have a salePercentage property
+  const discountedGames = games.filter(game => game.salePercentage);
+
   return (
     <div>
       {/* news section */}  
@@ -40,7 +43,8 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="horizontalScrollContainer">
-          {games.map((game) => (
+          {/*since it maps over 'discounted games', it will only show discounted games here */}
+          {discountedGames.map((game) => (
             <GameCard key={game.id} game={game} />
           ))}
         </div>
