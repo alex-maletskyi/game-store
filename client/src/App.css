@@ -12,7 +12,7 @@
 
 /* gives the cards a fixed width so they don't get squished. */
 /* selects only the div elements that are direct children of .horizontalScrollContainer */
-.horizontalScrollContainer > div {
+.horizontalScrollContainer > * {
   flex-shrink: 0;
   width: 250px;
 }
